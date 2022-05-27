@@ -16,7 +16,7 @@ export function App() {
 
   return (
     <div className="p-4 bg-white border-2">
-      <div className="flex gap-2">
+      <div>
         {expensesTabs.map((expenseTab, index) => (
           <button
             onClick={() => setCurrentExpenseTab(expenseTab as ExpensesTabs)}
@@ -27,11 +27,13 @@ export function App() {
           </button>
         ))}
       </div>
-      {currentExpenseTab === ExpensesTabs.currentMonth ? (
-        <CurrentMonthMenu />
-      ) : (
-        <FixedMonthlyMenu />
-      )}
+      <div>
+        {currentExpenseTab === ExpensesTabs.currentMonth ? (
+          <CurrentMonthMenu />
+        ) : (
+          <FixedMonthlyMenu />
+        )}
+      </div>
     </div>
   )
 }

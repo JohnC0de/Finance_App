@@ -11,7 +11,7 @@ ReactDOM.createRoot(document.getElementById('root')!).render(
     <header className="w-screen">
       <Navbar />
     </header>
-    <div className="flex flex-col items-center justify-center">
+    <div className="">
       <App />
     </div>
     <footer className="w-screen text-center">

@@ -48,25 +48,28 @@ export function CurrentMonthMenu() {
   }
   return (
     <form
-      className="flex flex-col items-center justify-center gap-2 p-8 border"
+      className="flex flex-wrap items-center justify-center border"
       onSubmit={handleSubmit}
     >
-      <input className="p-1 border" type="text" placeholder="Card" />
       <label htmlFor="cards">Cards</label>
-      <select className="p-1 border" name="cards" id="cards">
+      <select className="w-32 p-1 border" name="cards" id="cards">
         {cards.map(card => (
           <option value={card.replace(' ', '').toLowerCase()}>{card}</option>
         ))}
       </select>
-      <input className="p-1 border" type="text" placeholder="Description" />
-      <input className="p-1 border" type="text" placeholder="Value" />
       <input
-        className="p-1 border"
+        className="w-32 p-1 border"
+        type="text"
+        placeholder="Description"
+      />
+      <input className="w-20 p-1 border" type="text" placeholder="Value" />
+      <input
+        className="w-20 p-1 border"
         type="text"
         placeholder="Paid Installments"
       />
       <input
-        className="p-1 border"
+        className="w-20 p-1 border"
         type="text"
         placeholder="Total Installments"
       />
