@@ -1,0 +1,15 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+#root {
+  @apply bg-[#f1f1f1];
+}
+
+.form-input {
+  @apply rounded-lg p-2 border;
+}
+
+.form-submit {
+  @apply rounded-lg p-2 border bg-blue-600 text-white w-full;
+}
