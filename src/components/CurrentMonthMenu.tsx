@@ -1,6 +1,4 @@
-import { useState } from 'react'
-
-interface Expenses {
+export type ExpensesType = {
   id: number
   card: string
   desc: string
@@ -11,38 +9,28 @@ interface Expenses {
 
 const cards = [
   'Nubank',
+  'C6 Bank',
+  'XP',
   'Banco Inter',
   'Pan Zero',
-  'XP Infinite',
-  'C6 Bank',
   'Buscapé',
   'PicPay',
   'Neon',
   'Next',
-  'Credicard Platinum',
-  'Pão de Açúcar Internacional',
+  'Credicard',
   'Samsung Itaucard',
   'Digio',
-  'Caixa Sim',
   'PagBank',
-  'BMG Mastercard',
-  'Banco Original',
-  'Saraiva',
   'Magalu',
-  'Petrobras',
   'Digi+ Visa',
   'Itaucard Click',
   'Iti Itaú',
-  'Rappi Gold',
-  'ModalMais Internacional',
-  'BTG+ Gold',
-  'Santander SX',
-  'Carrefour',
+  'Santander',
   'Bradesco Neo'
 ]
 
 export function CurrentMonthMenu() {
-  function handleSubmit(e) {
+  function handleSubmit(e: any) {
     e.preventDefault()
     console.log(e.target)
   }
@@ -53,8 +41,10 @@ export function CurrentMonthMenu() {
     >
       <label htmlFor="cards">Cards</label>
       <select className="w-32 p-1 border" name="cards" id="cards">
-        {cards.map(card => (
-          <option value={card.replace(' ', '').toLowerCase()}>{card}</option>
+        {cards.map((card, index) => (
+          <option key={index} value={card.replace(' ', '').toLowerCase()}>
+            {card}
+          </option>
         ))}
       </select>
       <input

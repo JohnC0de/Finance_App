@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import { CurrentMonthMenu } from './components/CurrentMonthMenu'
+import { ExpensesList } from './components/ExpensesList'
 import { FixedMonthlyMenu } from './components/FixedMonthlyMenu'
 
 enum ExpensesTabs {
@@ -33,6 +34,9 @@ export function App() {
         ) : (
           <FixedMonthlyMenu />
         )}
+      </div>
+      <div>
+        <ExpensesList />
       </div>
     </div>
   )
