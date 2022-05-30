@@ -1,5 +1,13 @@
 import { useEffect, useState } from 'react'
-import { ExpensesType } from './CurrentMonthMenu'
+
+export type ExpensesType = {
+  id?: number
+  card: string
+  description: string
+  value: number
+  paidInstallments: number
+  totalInstallments: number
+}
 
 export function ExpensesList() {
   const [expensesList, setExpensesList] = useState([] as ExpensesType[])
@@ -12,17 +20,7 @@ export function ExpensesList() {
     fetchExpensesList()
   }, [])
 
-  const expenses = [
-    {
-      card: 'Nubank',
-      description: 'Uber',
-      value: '35.76',
-      paidInstallments: '0',
-      totalInstallments: '1'
-    }
-  ]
-
-  const total = expenses
+  const total = expensesList
     .map(expense => Number(expense.value))
     .reduce((total, num) => {
       return total + num
@@ -42,10 +40,12 @@ export function ExpensesList() {
           </tr>
         </thead>
         <tbody>
-          {expensesList.map(expense => (
-            <tr>
-              {Object.values(expense).map(property => (
-                <td className="border">{property}</td>
+          {expensesList.map((expense, index) => (
+            <tr key={index}>
+              {Object.values(expense).map((property, index) => (
+                <td key={index} className="border">
+                  {property}
+                </td>
               ))}
             </tr>
           ))}
